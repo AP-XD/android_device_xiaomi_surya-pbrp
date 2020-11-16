@@ -70,7 +70,7 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 #TARGET_USE_SDCLANG := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := surya, suryain
+TARGET_OTA_ASSERT_DEVICE := surya, karna
 
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_surya
