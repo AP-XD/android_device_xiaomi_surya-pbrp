@@ -39,6 +39,8 @@ on early-fs
 
 on init
     setprop crypto.ready 1
+    chmod 0777 /init.recovery.qcom.sh
+    start init-recovery-qcom-sh
 
 # Separate copy needed to use /sbin/linker64 instead of /system/bin/linker64
 service sbinqseecomd /sbin/qseecomd
@@ -72,6 +74,17 @@ service keymaster-4-0 /sbin/android.hardware.keymaster@4.0-service-qti
     group root
     disabled
     seclabel u:r:recovery:s0
+
+
+service init-recovery-qcom-sh /init.recovery.qcom.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
+on boot
+    setprop sys.usb.config adb
 
 on property:crypto.ready=0
     stop sbinqseecomd
