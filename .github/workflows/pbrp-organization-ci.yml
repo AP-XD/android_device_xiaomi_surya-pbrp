@@ -56,9 +56,3 @@ jobs:
          with:
           name: recoveryimage
           path: /home/runner/builder/out/target/product/*/*.img
-          
-       - name: Upload recovery image 
-         run: |
-              cd /home/runner/builder/out/target/product/surya
-              curl https://bashupload.com/ -T recovery.img
-              curl https://bashupload.com/ -T *.zip
